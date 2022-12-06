@@ -21,8 +21,9 @@ html, body{
     }
 
     main{
-        display: flex; /* cambiar por CSS grid */
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-auto-rows: 90% 10%;
         height: 90%;
         color: white;
         font-family: 'Poppins';
@@ -30,13 +31,15 @@ html, body{
         .text-section{
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: left;
             justify-content: center;
-            width: 40%;
-            padding: 0px 30px 0px 30px;
+            grid-column: 2;
+            grid-row: 1;
+            padding: 0px 30px 0px 0px;
 
             h1{
                 font-family: 'Poppins';
+                margin: 0;
             }
 
             p{
@@ -49,6 +52,13 @@ html, body{
                 height: 45px;
                 border-radius: 30px;
                 border: none;
+                color: $Violet;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: $Soft-Magenta;
+                    color: white;
+                }
             }
         }
 
@@ -56,7 +66,9 @@ html, body{
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60%;
+            grid-column: 1 / 2;
+            grid-row: 1;
+            padding-top: 50px;
 
             img{
                 width: 600px;
@@ -64,8 +76,158 @@ html, body{
         }
 
         .icons-section{
+            display: flex;
             color: white;
+            grid-column: 2;
+            grid-row: 2;
+            justify-content: end;
+            align-items: center;
+            gap: 15px;
+            padding-right: 40px;
+            padding-bottom: 40px;
+
+            i{
+                --fa-border-padding: 10px;
+                --fa-border-radius: 50%;
+
+                &:hover{
+                    cursor: pointer;
+                    color: $Soft-Magenta;
+                    --fa-border-color: hsl(300, 69%, 71%);
+                }
+            }
+        }
+    }
+
+    footer{
+        color: white;
+
+        a, a:link{
+            color: $Soft-Magenta;
+
+            &:visited{
+                color: hsla(305, 93%, 60%, 0.795);
+            }
+        }
+    }
+
+    @media (max-width: 1100px) {
+        main{
+            grid-template-columns: 50% 50%;
+            .image-section{
+                img{
+                    width: 450px;
+                }
+            }
+        }
+        
+    }
+
+    @media (max-width: 980px) {
+
+        header{
+
+            img{
+                width: 150px;
+                padding: 30px 0px 0px 30px;
+            }
         }
 
+        main{
+            grid-template-columns: 100%;
+            grid-auto-rows: 46% 46% 8%;
+            height: fit-content;
+
+            .image-section{
+                grid-column: 1;
+                grid-row: 1;
+
+                img{
+                    width: 450px;
+                }
+            }
+
+            .text-section{
+                grid-column: 1;
+                grid-row: 2;
+                text-align: center;
+                padding: 30px;
+
+                h1{
+                    font-size: 22px;
+                }
+
+                p{
+                    font-size: 15px;
+                }
+
+                button{
+                    margin: 0 auto;
+                }
+            }
+
+            .icons-section{
+                grid-column: 1;
+                grid-row: 3;
+                margin: 0 auto;
+                padding-left: 40px;
+            }
+        }
+
+    }
+
+    @media (max-width: 500px) {
+        header{
+
+            img{
+                width: 150px;
+                padding: 30px 0px 0px 30px;
+            }
+        }
+
+        main{
+            grid-template-columns: 100%;
+            grid-auto-rows: 46% 46% 8%;
+            height: fit-content;
+
+            .image-section{
+                grid-column: 1;
+                grid-row: 1;
+
+                img{
+                    width: 300px;
+                }
+            }
+
+            .text-section{
+                grid-column: 1;
+                grid-row: 2;
+                text-align: center;
+                padding: 30px;
+
+                h1{
+                    font-size: 22px;
+                }
+
+                p{
+                    font-size: 15px;
+                }
+
+                button{
+                    margin: 0 auto;
+                }
+            }
+
+            .icons-section{
+                grid-column: 1;
+                grid-row: 3;
+                margin: 0 auto;
+                padding: 40px 0px 40px 0px;
+            }
+        }
+
+        footer{
+            padding-top: 40px;
+        }
     }
 }
